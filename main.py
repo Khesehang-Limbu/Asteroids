@@ -45,6 +45,12 @@ def main():
                 print("Game Over!")
                 return
 
+            for shot in drawable:
+                if type(shot) is Shot:
+                    if shot.collide(asteroid):
+                        asteroid.split()
+                        shot.kill()
+
         pygame.display.flip()
         dt = (fps.tick(60))/1000
 
